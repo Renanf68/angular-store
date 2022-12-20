@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #33B5E5;
+  color: #fff;
+  padding: 12px;
+}
+
+.header-nav {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background-color: #fff;
+  margin: 0 12px 0 12px;
+}
+
+a {
+  color: #ffffff;
+}
