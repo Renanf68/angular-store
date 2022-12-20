@@ -1,4 +1,16 @@
-<div>
+<div class="product-card">
+  <div class="product-card-img">
+    <img src="{{ product.url }}" alt="{{ product.name }}-image">
+  </div>
   <h2>{{ product.name }}</h2>
-  <p>Teste</p>
+  <div class="product-card-actions">
+    <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+    <button>Add to cart</button>
+  </div>
 </div>

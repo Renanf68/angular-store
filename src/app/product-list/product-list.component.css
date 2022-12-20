@@ -1,0 +1,15 @@
+.product-list {
+  margin-top: 32px;
+  margin-bottom: 64px;
+}
+
+.product-list>h1 {
+  margin-left: 16px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
