@@ -8,7 +8,7 @@
   position: relative;
   max-width: 300px;
   padding: 16px;
-  border: 1px solid indigo;
+  border: 1px solid #3f51b5;
 }
 .product-card-img>img {
   width: 100%;
