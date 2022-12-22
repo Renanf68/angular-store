@@ -63,3 +63,23 @@
 .product-details-actions>button:hover {
   background-color: #33B5E5;
 }
+
+.product-details-actions>a {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #108be9;
+}
+
+.product-details-actions>a>mat-icon {
+  padding-top: 2px;
+  font-size: 20px;
+}
+.product-details-actions>a>span {
+  margin-left: 4px;
+}
+
+.product-details-actions>a>span:hover {
+  text-decoration: underline;
+}

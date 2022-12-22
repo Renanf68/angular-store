@@ -18,7 +18,7 @@ export class CartService {
 
   public addToCart(product: Product) {
     this.cart.unshift(product);
-    alert('Product added to cart!');
+    alert('Added to cart!');
     console.log('cart: ', this.cart);
   }
 }

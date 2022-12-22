@@ -12,7 +12,10 @@
       </option>
     </select>
     <button (click)="addToCart(product)">Add to cart</button>
-    <a routerLink="/">Back to product list</a>
+    <a routerLink="/">
+      <mat-icon>keyboard_backspace</mat-icon>
+      <span>Back to product list</span>
+    </a>
   </div>
 </div>
 <div *ngIf="!product">
