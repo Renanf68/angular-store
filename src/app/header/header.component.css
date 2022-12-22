@@ -3,13 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #33B5E5;
+  background: #3f51b5;
   color: #fff;
   padding: 12px;
 }
 
+.header>h1 {
+  margin-bottom: 4px;
+}
+
 .header-nav {
-  margin-top: 4px;
   display: flex;
   flex-direction: row;
 }

@@ -7,11 +7,13 @@
   <h2>{{ product.name }}</h2>
   <h3>$ {{ product.price }}</h3>
   <div class="product-card-actions">
-    <select [(ngModel)]="quantity">
-      <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">
-        {{ opt.label }}
-      </option>
-    </select>
-    <button (click)="addToCart(product)">Add to cart</button>
+    <mat-form-field appearance="fill">
+      <select [(ngModel)]="quantity" matNativeControl>
+        <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">
+          {{ opt.label }}
+        </option>
+      </select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addToCart(product)">Add to cart</button>
   </div>
 </div>
