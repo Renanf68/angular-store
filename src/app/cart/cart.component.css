@@ -3,16 +3,15 @@
   flex-direction: row;
 }
 
-/* .cart-empty {
-  height: 400px;
-} */
-
-.cart-products {
+.cart-section-title {
+  font-size: 20px;
 }
 
 .cart-products>p {
   font-size: 24px;
 }
 
-.cart-form {
+.cart-form-container {
+  margin-left: 64px;
+  min-width: 300px;
 }

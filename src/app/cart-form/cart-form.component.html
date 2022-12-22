@@ -1,1 +1,46 @@
-<p>cart-form works!</p>
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="cart-form">
+  <mat-form-field class="cart-form-input">
+    <mat-label>Full name</mat-label>
+    <input
+      matInput
+      name="full_name"
+      placeholder="Type your name"
+      [(ngModel)]="full_name"
+      minlength="8"
+      maxlength="32"
+      required
+    >
+  </mat-form-field>
+  <mat-form-field class="cart-form-input">
+    <mat-label>Address</mat-label>
+    <input
+      matInput
+      name="address"
+      placeholder="Type your address"
+      [(ngModel)]="address"
+      minlength="6"
+      maxlength="48"
+      required
+    >
+  </mat-form-field>
+  <mat-form-field class="cart-form-input">
+    <mat-label>Credit card number</mat-label>
+    <input
+      matInput
+      name="credit_card"
+      placeholder="(16 digit number)"
+      [(ngModel)]="credit_card"
+      minlength="16"
+      maxlength="16"
+      required
+    >
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="form.invalid"
+  >
+    Submit
+  </button>
+</form>

@@ -3,6 +3,7 @@
 </div>
 <div *ngIf="products.length > 0" class="cart">
   <div class="cart-products">
+    <h1 class="cart-section-title">Selected products</h1>
     <app-cart-item
       *ngFor="let product of products" [product]="product"
       (updateCartProduct)="updateCartProduct($event)"
@@ -10,7 +11,8 @@
     ></app-cart-item>
     <p>Total: $ {{ getTotal()}}</p>
   </div>
-  <div class="cart-form">
-    <p>Form</p>
+  <div class="cart-form-container">
+    <h1 class="cart-section-title">Personal informations</h1>
+    <app-cart-form></app-cart-form>
   </div>
 </div>
