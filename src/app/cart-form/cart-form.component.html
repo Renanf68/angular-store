@@ -2,6 +2,7 @@
   <mat-form-field class="cart-form-input">
     <mat-label>Full name</mat-label>
     <input
+      #fullName="ngModel"
       matInput
       name="full_name"
       placeholder="Type your name"
@@ -11,9 +12,11 @@
       required
     >
   </mat-form-field>
+  <p *ngIf="full_name.length > 0 && fullName.invalid">The name must contain at least 5 characters</p>
   <mat-form-field class="cart-form-input">
     <mat-label>Address</mat-label>
     <input
+      #inputAddress="ngModel"
       matInput
       name="address"
       placeholder="Type your address"
@@ -23,18 +26,22 @@
       required
     >
   </mat-form-field>
+  <p *ngIf="address.length > 0 && inputAddress.invalid">The address must contain at least 6 characters</p>
   <mat-form-field class="cart-form-input">
     <mat-label>Credit card number</mat-label>
     <input
+      #creditCard="ngModel"
       matInput
       name="credit_card"
       placeholder="(16 digit number)"
+      oninput="javascript: this.value = this.value.replace(/\D/g, '')"
       [(ngModel)]="credit_card"
       minlength="16"
       maxlength="16"
       required
     >
   </mat-form-field>
+  <p *ngIf="credit_card.length > 0 && creditCard.invalid">The number must contain 16 characters</p>
   <button
     mat-raised-button
     color="primary"
