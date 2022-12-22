@@ -16,4 +16,14 @@ export class ProductService {
   public getProducts() {
     return this.products.map(ProductMapper.toDomain);
   }
+
+  public findById(productId: string | null) {
+    if (!productId) return null;
+    const product = this.products.find((product) => product.id === productId);
+    if (!product) {
+      console.log('product not found');
+      return null;
+    }
+    return ProductMapper.toDomain(product);
+  }
 }

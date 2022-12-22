@@ -2,7 +2,15 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
 import { CartService } from '../services/cart/cart.service';
 
-type QuantityOption = { value: number; label: string };
+export type QuantityOption = { value: number; label: string };
+export const defaultQuantityOptions = [
+  { value: 1, label: '1' },
+  { value: 2, label: '2' },
+  { value: 3, label: '3' },
+  { value: 4, label: '4' },
+  { value: 5, label: '5' },
+  { value: 6, label: '6' },
+] as QuantityOption[];
 
 @Component({
   selector: 'app-product-list-item',
@@ -22,16 +30,14 @@ export class ProductListItemComponent implements OnInit {
       url: '',
     });
     this.quantity = 1;
-    this.quantityOptions = [
-      { value: 1, label: '1' },
-      { value: 2, label: '2' },
-      { value: 3, label: '3' },
-      { value: 4, label: '4' },
-      { value: 5, label: '5' },
-    ];
+    this.quantityOptions = defaultQuantityOptions;
   }
 
   ngOnInit(): void {}
+
+  public cart() {
+    return this.cartService;
+  }
 
   public addToCart(product: Product) {
     product.updateQuantity(this.quantity);

@@ -1,8 +1,11 @@
 <div class="product-card">
-  <div class="product-card-img">
-    <img src="{{ product.url }}" alt="{{ product.name }}-image">
-  </div>
+  <a routerLink="/product/{{product.id}}">
+    <div class="product-card-img">
+      <img src="{{ product.url }}" alt="{{ product.name }}-image">
+    </div>
+  </a>
   <h2>{{ product.name }}</h2>
+  <h3>$ {{ product.price }}</h3>
   <div class="product-card-actions">
     <select [(ngModel)]="quantity">
       <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">

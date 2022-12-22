@@ -21,6 +21,13 @@
   font-weight: 400;
 }
 
+.product-card>h3 {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .product-card-actions {
   display: flex;
   flex-direction: column;

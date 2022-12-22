@@ -1,1 +1,20 @@
-<p>product-details works!</p>
+<div *ngIf="product" class="product-details">
+  <div class="product-details-img">
+    <img src="{{ product.url }}" alt="{{ product.name }}-image">
+  </div>
+  <div class="product-details-actions">
+    <h2>{{ product.name }}</h2>
+    <h3>{{ product.description }}</h3>
+    <p>$ {{ product.price }}</p>
+    <select [(ngModel)]="quantity">
+      <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">
+        {{ opt.label }}
+      </option>
+    </select>
+    <button (click)="addToCart(product)">Add to cart</button>
+    <a routerLink="/">Back to product list</a>
+  </div>
+</div>
+<div *ngIf="!product">
+  <p>Product not found!</p>
+</div>
