@@ -6,13 +6,13 @@
 .product-details-img {
   position: relative;
   max-width: 300px;
-  height: 450px;
-  border-radius: 8px;
-  overflow: hidden;
+  height: auto;
 }
 
 .product-details-img>img {
   width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .product-details-actions {
@@ -59,4 +59,16 @@
 
 .product-details-actions>a>span:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  .product-details {
+    flex-direction: column;
+  }
+  .product-details-actions {
+    margin-top: 32px;
+    margin-left: 0;
+    justify-content: center;
+    align-items: center;
+  }
 }
