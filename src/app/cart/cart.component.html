@@ -1,1 +1,16 @@
-<p>cart works!</p>
+<div *ngIf="products.length === 0" class="cart-empty">
+  <p>You haven't added any products to your cart yet.</p>
+</div>
+<div *ngIf="products.length > 0" class="cart">
+  <div class="cart-products">
+    <app-cart-item
+      *ngFor="let product of products" [product]="product"
+      (updateCartProduct)="updateCartProduct($event)"
+      (removeCartProduct)="removeCartProduct($event)"
+    ></app-cart-item>
+    <p>Total: $ {{ getTotal()}}</p>
+  </div>
+  <div class="cart-form">
+    <p>Form</p>
+  </div>
+</div>

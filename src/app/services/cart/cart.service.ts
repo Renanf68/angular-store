@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Product } from 'src/app/models/Product';
-import { ProductMapper } from '../mappers/product-mapper';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +11,27 @@ export class CartService {
     this.cart = [];
   }
 
-  public getCartData() {
-    return this.cart.map(ProductMapper.toDomain);
+  public getCart() {
+    console.log('cart: ', this.cart);
+    return this.cart;
   }
 
   public addToCart(product: Product) {
     this.cart.unshift(product);
-    alert('Added to cart!');
-    console.log('cart: ', this.cart);
+    alert(`Item ${product.name} added to cart!`);
+  }
+
+  public updateCartProduct(changes: { productId: string; quantity: number }) {
+    const { productId, quantity } = changes;
+    this.cart.forEach((product) => {
+      if (product.id === productId) {
+        product.updateQuantity(quantity);
+      }
+    });
+  }
+
+  public removeCartProduct(product: Product) {
+    this.cart = this.cart.filter((item) => item.id !== product.id);
+    alert(`Item ${product?.name} removed from cart!`);
   }
 }

@@ -13,6 +13,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartItemComponent } from './cart-item/cart-item.component';
+import { CartFormComponent } from './cart-form/cart-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductDetailsComponent,
     CartComponent,
     ProductListItemComponent,
+    CartItemComponent,
+    CartFormComponent,
   ],
   imports: [
     BrowserModule,

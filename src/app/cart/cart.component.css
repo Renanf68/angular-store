@@ -1,0 +1,18 @@
+.cart {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .cart-empty {
+  height: 400px;
+} */
+
+.cart-products {
+}
+
+.cart-products>p {
+  font-size: 24px;
+}
+
+.cart-form {
+}

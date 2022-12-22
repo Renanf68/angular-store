@@ -1,0 +1,36 @@
+.cart-product {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 32px;
+}
+
+.cart-product-img {
+  position: relative;
+  max-width: 134px;
+  height: 202px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cart-product-img>img {
+  width: 100%;
+}
+
+.cart-product-actions {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 200px;
+}
+
+.cart-product-actions>h2 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.cart-product-actions>p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 400;
+}

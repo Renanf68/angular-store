@@ -1,0 +1,17 @@
+<div class="cart-product">
+  <div class="cart-product-img">
+    <img src="{{ product.url }}" alt="{{ product.name }}-image">
+  </div>
+  <div class="cart-product-actions">
+    <h2>{{ product.name }}</h2>
+    <p>$ {{ product.price }}</p>
+    <mat-form-field appearance="fill">
+      <select [(ngModel)]="quantity" matNativeControl (change)="updateProduct()">
+        <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">
+          {{ opt.label }}
+        </option>
+      </select>
+    </mat-form-field>
+    <button mat-stroked-button color="warn" (click)="removeProduct()">Remove</button>
+  </div>
+</div>
