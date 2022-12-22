@@ -1,0 +1,24 @@
+.checkout-success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-success>h1 {
+  font-size: 32px;
+  color: green;
+}
+
+.checkout-success>p {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.checkout-success>p>span {
+  font-weight: 700;
+}
+
+.checkout-success button {
+  margin-top: 22px;
+}

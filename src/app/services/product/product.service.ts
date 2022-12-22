@@ -21,7 +21,6 @@ export class ProductService {
     if (!productId) return null;
     const product = this.products.find((product) => product.id === productId);
     if (!product) {
-      console.log('product not found');
       return null;
     }
     return ProductMapper.toDomain(product);

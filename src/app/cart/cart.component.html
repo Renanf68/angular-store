@@ -1,7 +1,7 @@
-<div *ngIf="products.length === 0" class="cart-empty">
+<div *ngIf="!isSubmitted && products.length === 0" class="cart-empty">
   <p>You haven't added any products to your cart yet.</p>
 </div>
-<div *ngIf="products.length > 0" class="cart">
+<div *ngIf="!isSubmitted && products.length > 0" class="cart">
   <div class="cart-products">
     <h1 class="cart-section-title">Selected products</h1>
     <app-cart-item
@@ -13,6 +13,12 @@
   </div>
   <div class="cart-form-container">
     <h1 class="cart-section-title">Personal data</h1>
-    <app-cart-form></app-cart-form>
+    <app-cart-form (onSubmitOrder)="onSubmitOrder($event)"></app-cart-form>
   </div>
 </div>
+<app-checkout-success
+  *ngIf="isSubmitted"
+  [consumer]="consumer"
+  [total]="getTotal()"
+  (onOrderComplete)="onOrderComplete()"
+></app-checkout-success>

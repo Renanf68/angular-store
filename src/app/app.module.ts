@@ -15,6 +15,8 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
+import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { CartFormComponent } from './cart-form/cart-form.component';
     ProductListItemComponent,
     CartItemComponent,
     CartFormComponent,
+    CheckoutSuccessComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

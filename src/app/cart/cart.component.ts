@@ -9,6 +9,8 @@ import { CartService } from '../services/cart/cart.service';
 })
 export class CartComponent implements OnInit {
   products: Product[];
+  private consumer_name: string = '';
+  private is_submitted: boolean = false;
 
   constructor(private cartService: CartService) {
     this.products = [];
@@ -31,7 +33,6 @@ export class CartComponent implements OnInit {
   }
 
   updateCartProduct(changes: { productId: string; quantity: number }) {
-    console.log('CartComponent updateCartProduct');
     this.cartService.updateCartProduct(changes);
     this.getCart();
   }
@@ -39,5 +40,24 @@ export class CartComponent implements OnInit {
   removeCartProduct(product: Product) {
     this.cartService.removeCartProduct(product);
     this.getCart();
+  }
+
+  onSubmitOrder(fullname: string) {
+    this.consumer_name = fullname;
+    this.is_submitted = true;
+  }
+
+  onOrderComplete() {
+    // this.consumer_name = '';
+    // this.is_submitted = false;
+    this.cartService.clearCart();
+  }
+
+  public get consumer() {
+    return this.consumer_name;
+  }
+
+  public get isSubmitted() {
+    return this.is_submitted;
   }
 }

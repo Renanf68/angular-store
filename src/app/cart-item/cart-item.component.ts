@@ -36,7 +36,6 @@ export class CartItemComponent {
   }
 
   updateProduct() {
-    console.log('updateProduct');
     this.updateCartProduct.emit({
       productId: this.product.id,
       quantity: this.quantity,

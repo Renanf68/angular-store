@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cart-form',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-form.component.css'],
 })
 export class CartFormComponent implements OnInit {
+  @Output() onSubmitOrder: EventEmitter<string> = new EventEmitter();
   full_name: string = '';
   address: string = '';
   credit_card: string = '';
@@ -15,7 +16,6 @@ export class CartFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    // redirect to success page
-    console.log('Submit');
+    this.onSubmitOrder.emit(this.full_name);
   }
 }
