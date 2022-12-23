@@ -36,8 +36,8 @@ export class ProductDetailsComponent implements OnInit {
     return this._product;
   }
 
-  public addToCart(product: Product) {
-    product.updateQuantity(this.quantity);
-    this.cartService.addToCart(product);
+  public addToCart() {
+    this._product!.updateQuantity(this.quantity);
+    this.cartService.addToCart(this._product!);
   }
 }
