@@ -1,9 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { testDeclarations, testImports } from '../app.component.spec';
+import { ProductProps } from '../models/Product';
 import { CartService } from '../services/cart/cart.service';
 
 import { ProductDetailsComponent } from './product-details.component';
+
+const testProduct = {
+  id: 'AAA',
+  name: 'Test',
+  description: 'Test product',
+  price: 10.0,
+  url: '',
+} as ProductProps;
+
+const testProduct2 = {
+  id: 'BBB',
+  name: 'Test2',
+  description: 'Test product2',
+  price: 20.0,
+  url: '',
+} as ProductProps;
+
+const fakeList = [testProduct, testProduct2];
 
 describe('ProductDetailsComponent', () => {
   let cartService: CartService;
@@ -20,7 +39,7 @@ describe('ProductDetailsComponent', () => {
           useValue: {
             snapshot: {
               paramMap: {
-                get: () => '5a6e0804-2bd0-4672-b79d-d97027f9071e',
+                get: () => testProduct.id!,
               },
             },
           },
@@ -32,6 +51,7 @@ describe('ProductDetailsComponent', () => {
     fixture = TestBed.createComponent(ProductDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.selectProduct(testProduct.id!, fakeList);
   });
 
   it('should create', () => {
@@ -39,9 +59,9 @@ describe('ProductDetailsComponent', () => {
   });
 
   it('should render product infos', () => {
-    expect(component.product?.name).toEqual('Cup');
-    expect(component.product?.description).toEqual('Drink anything with it!');
-    expect(component.product?.price).toEqual(4.99);
+    expect(component.product?.name).toEqual('Test');
+    expect(component.product?.description).toEqual('Test product');
+    expect(component.product?.price).toEqual(10.0);
     expect(component.quantity).toEqual(1);
   });
 

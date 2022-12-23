@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../services/cart/cart.service';
-import { Product } from '../models/Product';
+import { Product, ProductProps } from '../models/Product';
 import { ProductService } from '../services/product/product.service';
 import {
   defaultQuantityOptions,
@@ -28,11 +28,15 @@ export class ProductDetailsComponent implements OnInit {
     this.quantityOptions = defaultQuantityOptions;
   }
 
+  public selectProduct(productId: string | null, list: ProductProps[]) {
+    const product = list.find((item) => item.id === productId);
+    this._product = product ? ProductMapper.toDomain(product) : null;
+  }
+
   ngOnInit() {
     const productId = this.route.snapshot.paramMap.get('id');
     this.productService.getProducts().subscribe((res) => {
-      const product = res.find((item) => item.id === productId);
-      this._product = product ? ProductMapper.toDomain(product) : null;
+      this.selectProduct(productId, res);
     });
   }
 

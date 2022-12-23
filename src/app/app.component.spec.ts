@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,6 +26,7 @@ export const testImports = [
   MatInputModule,
   BrowserAnimationsModule,
   MatButtonModule,
+  HttpClientModule,
 ];
 
 export const testDeclarations = [
