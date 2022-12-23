@@ -17,6 +17,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { CartFormComponent } from './cart-form/cart-form.component';
 import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatInputModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

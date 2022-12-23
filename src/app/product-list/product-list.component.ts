@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/Product';
+import { ProductMapper } from '../services/mappers/product-mapper';
 import { ProductService } from '../services/product/product.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class ProductListComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    const products = this.productService.getProducts();
-    this.products = products;
+    this.productService.getProducts().subscribe((res) => {
+      this.products = res.map(ProductMapper.toDomain);
+    });
   }
 }

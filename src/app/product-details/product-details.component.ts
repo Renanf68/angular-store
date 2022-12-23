@@ -7,6 +7,7 @@ import {
   defaultQuantityOptions,
   QuantityOption,
 } from '../product-list-item/product-list-item.component';
+import { ProductMapper } from '../services/mappers/product-mapper';
 
 @Component({
   selector: 'app-product-details',
@@ -29,7 +30,10 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     const productId = this.route.snapshot.paramMap.get('id');
-    this._product = this.productService.findById(productId) ?? null;
+    this.productService.getProducts().subscribe((res) => {
+      const product = res.find((item) => item.id === productId);
+      this._product = product ? ProductMapper.toDomain(product) : null;
+    });
   }
 
   public get product() {
