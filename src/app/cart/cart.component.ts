@@ -48,8 +48,6 @@ export class CartComponent implements OnInit {
   }
 
   onOrderComplete() {
-    // this.consumer_name = '';
-    // this.is_submitted = false;
     this.cartService.clearCart();
   }
 
