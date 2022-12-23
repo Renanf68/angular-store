@@ -17,6 +17,18 @@ export class CartService {
   }
 
   public addToCart(product: Product) {
+    if (this.cart.length > 0) {
+      const productIndexInCart = this.cart.findIndex(
+        (item) => item.id === product.id
+      );
+      if (productIndexInCart > -1) {
+        this.cart[productIndexInCart].updateQuantity(product.quantity!);
+        alert(
+          `Item ${product.name} already in cart! The quantity was updated.`
+        );
+        return;
+      }
+    }
     this.cart.push(product);
     alert(`Item ${product.name} added to cart!`);
   }

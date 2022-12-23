@@ -17,30 +17,34 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
 
+export const testImports = [
+  RouterTestingModule,
+  AppRoutingModule,
+  FormsModule,
+  MatIconModule,
+  MatInputModule,
+  BrowserAnimationsModule,
+  MatButtonModule,
+];
+
+export const testDeclarations = [
+  AppComponent,
+  HeaderComponent,
+  ProductListComponent,
+  ProductDetailsComponent,
+  CartComponent,
+  ProductListItemComponent,
+  CartItemComponent,
+  CartFormComponent,
+  CheckoutSuccessComponent,
+  PageNotFoundComponent,
+];
+
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        AppRoutingModule,
-        FormsModule,
-        MatIconModule,
-        MatInputModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-      ],
-      declarations: [
-        AppComponent,
-        HeaderComponent,
-        ProductListComponent,
-        ProductDetailsComponent,
-        CartComponent,
-        ProductListItemComponent,
-        CartItemComponent,
-        CartFormComponent,
-        CheckoutSuccessComponent,
-        PageNotFoundComponent,
-      ],
+      imports: testImports,
+      declarations: testDeclarations,
     }).compileComponents();
   });
 

@@ -3,7 +3,7 @@ import { Product } from 'src/app/models/Product';
 
 import { CartService } from './cart.service';
 
-fdescribe('CartService', () => {
+describe('CartService', () => {
   let service: CartService;
   let testProduct: Product;
   let testProduct2: Product;
@@ -16,12 +16,14 @@ fdescribe('CartService', () => {
       description: 'Test product',
       price: 10.0,
       url: '',
+      quantity: 2,
     });
     testProduct2 = new Product({
       name: 'Test2',
       description: 'Test product 2',
       price: 30.0,
       url: '',
+      quantity: 1,
     });
   });
 
@@ -44,10 +46,19 @@ fdescribe('CartService', () => {
     service.addToCart(testProduct);
     service.updateCartProduct({
       productId: testProduct.id,
-      quantity: 2,
+      quantity: 4,
     });
     const cartProducts = service.getCart();
-    expect(cartProducts[0].quantity).toEqual(2);
+    expect(cartProducts[0].quantity).toEqual(4);
+  });
+
+  it('should be able to update product quantity when it already exists in cart ', () => {
+    service.addToCart(testProduct);
+    testProduct.updateQuantity(3);
+    service.addToCart(testProduct);
+    const cartProducts = service.getCart();
+    expect(cartProducts.length).toEqual(1);
+    expect(cartProducts[0].quantity).toEqual(3);
   });
 
   it('should be able to remove product from cart', () => {
