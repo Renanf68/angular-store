@@ -6,7 +6,7 @@
     <h2>{{ product.name }}</h2>
     <p>$ {{ product.price }}</p>
     <mat-form-field appearance="fill">
-      <select [(ngModel)]="quantity" matNativeControl (change)="updateProduct()">
+      <select [(ngModel)]="quantity" matNativeControl (ngModelChange)="updateProduct()">
         <option *ngFor="let opt of quantityOptions" [ngValue]="opt.value">
           {{ opt.label }}
         </option>
